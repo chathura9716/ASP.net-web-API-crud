@@ -1,0 +1,54 @@
+<h1 mat-dialog-title>Add Employee</h1>
+<div mat-dialog-content>
+
+    <form [formGroup]="programForm">
+        <mat-form-field appearance="fill">
+            <mat-label>Name: </mat-label>
+            <input  formControlName="name" matInput placeholder="Enter name">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Email: </mat-label>
+            <input type="email" formControlName="email" matInput placeholder="Enter email">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Phone: </mat-label>
+            <input  formControlName="phone" matInput placeholder="Enter phone">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Salary: </mat-label>
+            <input  formControlName="salary" matInput placeholder="Enter salary">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        <mat-form-field appearance="fill">
+            <mat-label>Department: </mat-label>
+            <input  formControlName="department" matInput placeholder="Enter department">
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+
+  
+        <!-- <mat-form-field appearance="fill">
+            <mat-label>Program Status: </mat-label>
+            <mat-select  formControlName="status">
+                <mat-option value="Activate">Activate</mat-option>
+                <mat-option value="Inactivate">Inactivate</mat-option>
+
+            </mat-select>
+            <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field> -->
+    </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+    
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button style="margin-left:8px; margin-right: 20px;" mat-raised-button color="primary" (click)="addProgram()">{{actionBtn}}</button>
+
+</div>
