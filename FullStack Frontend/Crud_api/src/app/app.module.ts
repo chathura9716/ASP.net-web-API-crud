@@ -27,6 +27,11 @@ import { DashComponent } from './dash/dash.component';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatCardModule } from '@angular/material/card';
 import { MatMenuModule } from '@angular/material/menu';
+import { LoyalCustViewPageComponent } from './pages/loyalty_customer_management/loyal-cust-view-page/loyal-cust-view-page.component';
+import { LoyalCustDialogComponent } from './pages/loyalty_customer_management/loyal-cust-dialog/loyal-cust-dialog.component';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -38,10 +43,15 @@ import { MatMenuModule } from '@angular/material/menu';
     NavComponent,
     UserLayoutComponent,
     DashComponent,
+    LoyalCustViewPageComponent,
+    LoyalCustDialogComponent,
     
     
   ],
   imports: [
+   
+    MatDatepickerModule, 
+    MatNativeDateModule,
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
@@ -64,7 +74,7 @@ import { MatMenuModule } from '@angular/material/menu';
     MatCardModule,
     MatMenuModule
   ],
-  providers: [],
+  providers: [ DatePipe],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

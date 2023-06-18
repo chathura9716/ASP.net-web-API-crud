@@ -1,44 +1,43 @@
-import { AfterViewInit, Component, ViewChild, OnInit } from '@angular/core';
+import { Component, ViewChild, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { DialogComponent } from 'src/app/dialog/dialog.component';
-import { ApiService } from 'src/app/services/api.service';
+import { LoyalCustServiceService } from '../loyal-cust-service.service';
+import { LoyalCustDialogComponent } from '../loyal-cust-dialog/loyal-cust-dialog.component';
 
 @Component({
-  selector: 'app-table-view',
-  templateUrl: './table-view.component.html',
-  styleUrls: ['./table-view.component.scss']
+  selector: 'app-loyal-cust-view-page',
+  templateUrl: './loyal-cust-view-page.component.html',
+  styleUrls: ['./loyal-cust-view-page.component.scss']
 })
-export class TableViewComponent implements OnInit {
+export class LoyalCustViewPageComponent implements OnInit {
  
-  title = 'ProCrud';
-  displayedColumns: string[] = ['id', 'name','email', 'phone','salary','department', 'action'];
+  title = 'Loyal customers page';
+  displayedColumns: string[] = ['CustID', 'CardNo','CustName', 'Add1','Add2','Add3','RefNo','HomePhone','MobilePhone','CustType','IsIssued','IssueDate','CreatDate','CollectionType','AppTime','IsPrint','PrintTime','Email','NamePrintOnCard', 'action'];
   dataSource!: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
 
-  constructor(public dialog: MatDialog, private api: ApiService) { }
+  constructor(public dialog: MatDialog, private api: LoyalCustServiceService) { }
   ngOnInit(): void {
-    this.getAllPrograms();
+    this.getAllLoyalCust();
   }
   openDialog() {
-    this.dialog.open(DialogComponent, {
+    this.dialog.open(LoyalCustDialogComponent, {
       width: '1500px',
       height: 'auto',
 
     }).afterClosed().subscribe(val => {
       if (val === 'save') {
-        this.getAllPrograms();
+        this.getAllLoyalCust();
       }
     })
   }
 
-  getAllPrograms() {
-    this.api.getProgram().subscribe({
+  getAllLoyalCust() {
+    this.api.getAllLoyalCust().subscribe({
       next: (res) => {
         console.log(res);
         this.dataSource = new MatTableDataSource(res);
@@ -47,28 +46,28 @@ export class TableViewComponent implements OnInit {
         console.log(res);
       },
       error: (err) => {
-        alert("Error while getting programs!!!");
+        alert("Error while getting all loyal customers!!!");
       }
     })
   }
 
-  editProgram(row: any) {
-    this.dialog.open(DialogComponent, {
+  editLoyalCust(row: any) {
+    this.dialog.open(LoyalCustDialogComponent, {
       width: '1500px',
       height: 'auto',
       data: row,
     }).afterClosed().subscribe(val => {
       if (val === 'update') {
-      this.getAllPrograms();
+      this.getAllLoyalCust();
       }
     })
   }
 
-  deleteProgram(id: any) {
+  deleteLoyalCust(id: any) {
     
-    this.api.deleteProgram(id).subscribe({
+    this.api.deleteLoyalCust(id).subscribe({
       next: (res) => {
-        this.getAllPrograms();
+        this.getAllLoyalCust();
         alert("Employee delete successfull");
       },
       error:()=>{

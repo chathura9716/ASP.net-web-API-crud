@@ -1,0 +1,131 @@
+<div>
+    <div class="header">
+        <h2>MANAGE LOYALTY CUSTOMERS</h2>
+    </div>
+    <div class="example-spacer">
+        <button mat-raised-button
+            style="background-color: #996582;width: fit-content; color: aliceblue;margin-top: -72px !important;margin-right: 10px;"
+            (click)="openDialog()">ADD CUSTOMERS</button>
+    </div>
+    <div class="card">
+
+        <div class="table">
+            <mat-form-field>
+                <mat-label>Filter</mat-label>
+                <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+            </mat-form-field>
+
+            <div class="mat-elevation-z8">
+                <table mat-table [dataSource]="dataSource" matSort>
+
+                    <ng-container matColumnDef="CustID">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> CustID </th>
+                        <td mat-cell *matCellDef="let row"> {{row.custID}} </td>
+                    </ng-container>
+
+
+                    <ng-container matColumnDef="CardNo">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> CardNo </th>
+                        <td mat-cell *matCellDef="let row"> {{row.cardNo}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="CustName">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> CustName </th>
+                        <td mat-cell *matCellDef="let row"> {{row.custName}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Add1">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Add1 </th>
+                        <td mat-cell *matCellDef="let row" src=""> {{row.add1}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Add2">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Add2 </th>
+                        <td mat-cell *matCellDef="let row"> {{row.add2}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Add3">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Add3 </th>
+                        <td mat-cell *matCellDef="let row"> {{row.add3}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="RefNo">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> RefNo </th>
+                        <td mat-cell *matCellDef="let row"> {{row.refNo}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="HomePhone">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> HomePhone </th>
+                        <td mat-cell *matCellDef="let row"> {{row.homePhone}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="MobilePhone">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> MobilePhone </th>
+                        <td mat-cell *matCellDef="let row"> {{row.mobilePhone}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="CustType">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> CustType </th>
+                        <td mat-cell *matCellDef="let row"> {{row.custType}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="IsIssued">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> IsIssued </th>
+                        <td mat-cell *matCellDef="let row"> {{row.isIssued}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="IssueDate">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> IssueDate </th>
+                        <td mat-cell *matCellDef="let row"> {{row.issueDate}} </td>
+                    </ng-container>
+                    
+                    <ng-container matColumnDef="CreatDate">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> CreatDate </th>
+                        <td mat-cell *matCellDef="let row"> {{row.creatDate}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="CollectionType">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> CollectionType </th>
+                        <td mat-cell *matCellDef="let row"> {{row.collectionType}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="AppTime">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> AppTime </th>
+                        <td mat-cell *matCellDef="let row"> {{row.appTime}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="IsPrint">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> IsPrint </th>
+                        <td mat-cell *matCellDef="let row"> {{row.isPrint}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="PrintTime">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> PrintTime </th>
+                        <td mat-cell *matCellDef="let row"> {{row.printTime}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="Email">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Email </th>
+                        <td mat-cell *matCellDef="let row"> {{row.email}} </td>
+                    </ng-container>
+                    <ng-container matColumnDef="NamePrintOnCard">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> NamePrintOnCard </th>
+                        <td mat-cell *matCellDef="let row"> {{row.namePrintOnCard}} </td>
+                    </ng-container>
+
+                    <ng-container matColumnDef="action">
+                        <th mat-header-cell *matHeaderCellDef mat-sort-header> Action </th>
+                        <td mat-cell *matCellDef="let row">
+                            <button mat-icon-button (click)="editLoyalCust(row)" color="primary">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+
+
+                            <!-- <button mat-icon-button color="warn" (click)="deleteLoyalCust(row.id)">
+                                <mat-icon>delete</mat-icon>
+                            </button> -->
+                        </td>
+                    </ng-container>
+
+
+                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+                    <!-- Row shown when there is no matching data. -->
+                    <tr class="mat-row" *matNoDataRow>
+                        <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+                    </tr>
+                </table>
+
+                <mat-paginator [pageSizeOptions]="[5, 50, 200, 500]"
+                    aria-label="Select page of users"></mat-paginator>
+            </div>
+        </div>
+
+    </div>
+</div>

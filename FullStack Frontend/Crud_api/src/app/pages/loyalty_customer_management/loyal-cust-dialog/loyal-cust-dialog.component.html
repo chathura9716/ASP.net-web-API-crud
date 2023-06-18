@@ -1,0 +1,132 @@
+<h1 mat-dialog-title>ADD LOYALTY CUSTOMERS</h1>
+<div mat-dialog-content>
+
+    <form [formGroup]="loyalCustForm">
+        <mat-form-field appearance="fill">
+            <mat-label>CardNo:</mat-label>
+            <input formControlName="cardNo" matInput placeholder="Enter CardNo">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>CustName:</mat-label>
+            <input formControlName="custName" matInput placeholder="Enter custName">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Add1:</mat-label>
+            <input formControlName="add1" matInput placeholder="Enter Add1">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Add2:</mat-label>
+            <input formControlName="add2" matInput placeholder="Enter Add2">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Add3:</mat-label>
+            <input formControlName="add3" matInput placeholder="Enter Add3">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>RefNo:</mat-label>
+            <input formControlName="refNo" matInput placeholder="Enter RefNo">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>HomePhone:</mat-label>
+            <input formControlName="homePhone" matInput placeholder="Enter HomePhone">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>MobilePhone:</mat-label>
+            <input formControlName="mobilePhone" matInput placeholder="Enter MobilePhone">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>CustType:</mat-label>
+            <input formControlName="custType" matInput placeholder="Enter CustType">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>IsIssued:</mat-label>
+            <mat-select formControlName="isIssued">
+                <mat-option value=1>Issued</mat-option>
+                <mat-option value=0>Not Issued</mat-option>
+            </mat-select>
+        </mat-form-field>
+       
+        <mat-form-field>
+            <mat-label>Choose an IssueDate</mat-label>
+            <input formControlName="issueDate" matInput [matDatepicker]="picker">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>Choose a CreatDate</mat-label>
+            <input formControlName="creatDate" matInput [matDatepicker]="picker2">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker2"></mat-datepicker-toggle>
+            <mat-datepicker #picker2></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>CollectionType:</mat-label>
+            <input formControlName="collectionType" matInput placeholder="Enter CollectionType">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+   
+        <mat-form-field>
+            <mat-label>Choose an AppTime</mat-label>
+            <input formControlName="appTime" matInput [matDatepicker]="picker4">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker4"></mat-datepicker-toggle>
+            <mat-datepicker #picker4></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <mat-label>IsPrint:</mat-label>
+            <mat-select formControlName="isPrint">
+                <mat-option value=true>Printed</mat-option>
+                <mat-option value=false>Not Printed</mat-option>
+            </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Choose a PrintTime</mat-label>
+            <input formControlName="printTime" matInput [matDatepicker]="picker3">
+            <mat-hint>MM/DD/YYYY</mat-hint>
+            <mat-datepicker-toggle matIconSuffix [for]="picker3"></mat-datepicker-toggle>
+            <mat-datepicker #picker3></mat-datepicker>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>Email:</mat-label>
+            <input formControlName="email" matInput placeholder="Enter Email">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+        
+        <mat-form-field appearance="fill">
+            <mat-label>NamePrintOnCard:</mat-label>
+            <input formControlName="namePrintOnCard" matInput placeholder="Enter NamePrintOnCard">
+            <mat-hint>Hint</mat-hint>
+        </mat-form-field>
+    </form>
+</div>
+<div mat-dialog-action [align]="'end'">
+
+    <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+    <button style="margin-left:8px; margin-right: 20px;" mat-raised-button color="primary"
+        (click)="addLoyalCust()">{{actionBtn}}</button>
+
+</div>
